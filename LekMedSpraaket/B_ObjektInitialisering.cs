@@ -10,7 +10,7 @@
         [Test]
         public void FiffigSyntaksForÅInitialisereObjekter()
         {
-            // Arrage
+            // Arrange
             var person1 = new Person() // Valgfritt med parenteser
             {
                 Navn = "Espen Askeladd",
@@ -27,7 +27,7 @@
         [Test]
         public void PropertieneSettesEtterKonstruktøren()
         {
-            // Arrage
+            // Arrange
             var person = new Person("Pål Askeladd") 
             {
                 Navn = "Espen Askeladd"
@@ -44,11 +44,12 @@
             var person = new Person("Espen Askeladd")
             {
                 MellomNavn = "grøtspiser",
-                Alder = 21
+                Alder = 21,
+                ErDod = true
             };
 
             // Assert
-            person.Alder.Should().Be(31);
+            person.ErDod.Should().Be(false);
         }
     }
 }

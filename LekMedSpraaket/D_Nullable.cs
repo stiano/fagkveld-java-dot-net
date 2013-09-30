@@ -22,17 +22,17 @@
             Nullable<int> vennerPåFacebook = null;
             
             // Assert
-            vennerPåFacebook.HasValue.Should().Be(false);
+            vennerPåFacebook.HasValue.Should().Be(true);
         }
 
         [Test]
         public void KonsisSyntaks()
         {
-            // Arrage
+            // Arrange
             int? vennerPåFacebook = null;
 
             // Assert
-            vennerPåFacebook.HasValue.Should().Be(false);
+            vennerPåFacebook.HasValue.Should().Be(true);
         }
 
         [Test]
@@ -43,7 +43,7 @@
             vennerPåFacebook.HasValue.Should().Be(true);
             vennerPåFacebook.Value.Should().Be(6);
 
-            vennerPåFacebook.Should().Be(6);
+            vennerPåFacebook.Should().Be(3);
         }
 
         [Test]
@@ -59,7 +59,7 @@
 
             // Sett standardverdier
             side = side ?? 0;
-            størrelse = størrelse ?? 20;
+            størrelse = størrelse ?? 10;
 
             // Generer sekvens
             return Enumerable.Range(side.Value * størrelse.Value, størrelse.Value);

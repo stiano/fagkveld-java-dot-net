@@ -12,12 +12,10 @@
         {
             string t = null;
 
-            "".NullEllerTom().Should().Be(true);
-            t.NullEllerTom().Should().Be(true);
-            
-            "lang prosa tekst".NullEllerTom().Should().Be(false);
+            "".NullEllerTom().Should().Be(false);
+            t.NullEllerTom().Should().Be(false);
+            "lang prosa tekst".NullEllerTom().Should().Be(true);
         }
-
     }
 
     /// <summary>
@@ -28,6 +26,23 @@
         public static bool NullEllerTom(this string verdi)
         {
             return string.IsNullOrEmpty(verdi);
+        }
+
+        // Andre eksempler på utvidelsesmetoder
+
+        public static bool IkkeNullEllerTom(this string verdi)
+        {
+            return !string.IsNullOrEmpty(verdi);
+        }
+
+        public static string Right(this string value, int length)
+        {
+            return value != null && value.Length > length ? value.Substring(value.Length - length) : value;
+        }
+
+        public static string Left(this string value, int length)
+        {
+            return value != null && value.Length > length ? value.Substring(0, length) : value;
         }
     }
 }

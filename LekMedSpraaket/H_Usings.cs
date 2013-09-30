@@ -20,8 +20,8 @@
 
         public void Dispose()
         {
-            // Rydder opp ressursbruk
-            t = null;
+            // Rydd opp ressursbruk
+
             Trace.WriteLine("Dispose kjørt");
         }
     }
@@ -57,7 +57,7 @@
         }
 
         [Test]
-        public void BenyttesGjerneMotFilerEtc()
+        public void BenyttesGjerneMedStrømmerEtc()
         {
             var tilfeldigFilbane = Path.GetTempFileName();
 

@@ -18,22 +18,23 @@
     /// TODO 1: sett countOfBottles fra innkommende arguments variabel.
     /// 
     ///     Tips:
-    ///     g visual studio console application set arguments when debugging
+    ///     google: visual studio console application set arguments when debugging
     /// 
     /// TODO 2: Kjør applikasjonen fra cmd.exe med egen inputverdi
     /// 
     ///     Tips:
-    ///     g run console application from command prompt
+    ///     google: run console application from command prompt
     /// 
     /// TODO 3: sett countOfBottles i appSettings i app.config
     /// 
     ///     Tips:
-    ///     g read appsettings from app.config c#
+    ///     google: read appsettings from app.config c#
     /// 
     /// TODO 4: endre appconfig i 99BottlesOfBeer.exe.config før du kjører fra cmd.exe
     /// 
     ///     Tips: Open project folder in File Explorer > bin > Debug
-    ///     
+    /// 
+    /// TODO 5: Fiks slutten på applikasjonen om du har lyst :)
     /// 
     /// </summary>
     class Program
@@ -53,11 +54,11 @@
                 .ToList()
                 .ForEach(c => songLines.Add(
                     lineTemplate
-                        .Replace("{X}", c.ToString(CultureInfo.InvariantCulture))
-                        .Replace("{Y}", (c - 1) != 0 ? (c - 1).ToString(CultureInfo.InvariantCulture) : noMoreBeersLine)));
+                        .Replace("{X}", c.ToString())
+                        .Replace("{Y}", (c - 1) != 0 ? (c - 1).ToString() : noMoreBeersLine)));
 
             //Add the last line
-            songLines.Add(lastLine.Replace("{X}", countOfBottles.ToString(CultureInfo.InvariantCulture)));
+            songLines.Add(lastLine.Replace("{X}", countOfBottles.ToString()));
 
             // Print to screen
             songLines.ForEach(Console.WriteLine);

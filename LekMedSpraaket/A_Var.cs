@@ -22,17 +22,7 @@
         [Test]
         public void TrengerIkkeSkriveType()
         {
-            
-
-
-            const string TING = "TANG";
-
-
-
-
-
-
-            // Arrage
+            // Arrange
             //int magisk = 43;
             var magisk = 43;
 
@@ -51,7 +41,7 @@
         [Test]
         public void TrengerIkkeSkriveTypePåKompleksStruktur()
         {
-            // Arrage
+            // Arrange
             //Dictionary<string, Dictionary<string,object>> tilfeldigStruktur = new Dictionary<string, Dictionary<string,object>>();
             var tilfeldigStruktur = new Dictionary<string, Dictionary<string,object>>();
 
@@ -71,7 +61,7 @@
         [Test]
         public void FungererOgsåPåEgneTyper()
         {
-            // Arrage
+            // Arrange
             //Person person = new Person();
             var person = new Person();
 
@@ -85,7 +75,7 @@
         [Test]
         public void FungererNaturligvisOgsåPåLister()
         {
-            // Arrage
+            // Arrange
             var personer = Enumerable.Empty<Person>(); // Tom liste
 
             // Act

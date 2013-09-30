@@ -1,9 +1,7 @@
 ﻿namespace LekMedSpråket
 {
     using System.Collections.Generic;
-
     using FluentAssertions;
-
     using NUnit.Framework;
 
      [TestFixture]
@@ -48,7 +46,7 @@
                 Kontonummer = "12312 12 1232"
             };
 
-            konto.Id.Should().Be(123L);
+            konto.Id.Should().Be(124);
         }
     }
 }

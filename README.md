@@ -4,9 +4,9 @@
 
 * Installer Chocolatey, Visual Studio & Resharper
 * git clone "url"
-* Ctrl + Shift + B (kompiler)
+* Ctrl + Shift + B (kompiler) for å hente ned avhengigheter
 
-## Hurtigtaster
+## Hurtigtaster (fungerer ikke nødvendigvis 100% mot IntelliJ-konfigurerte miljøer)
  
 Snarvei | Beskrivelse 
 ---------|--------------------

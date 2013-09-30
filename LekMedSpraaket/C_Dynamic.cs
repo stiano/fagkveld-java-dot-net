@@ -1,7 +1,15 @@
 ﻿namespace LekMedSpråket
 {
     using System;
+    using System.Linq;
+
+    using FluentAssertions;
+
+    using IronPython.Hosting;
+
     using Microsoft.CSharp.RuntimeBinder;
+    using Microsoft.Scripting.Hosting;
+
     using NUnit.Framework;
 
     /*
@@ -28,6 +36,20 @@
             {
                 person.KanMålbindePrinsessen(true);
             });
+        }
+
+        [Test]
+        public void KanLeseInnPythonFilOgKjøreDen()
+        {
+            // For å hente ned avhengigheter måtte jeg åpne View -> Other Windows -> Package Manager Console
+            // PM> Install-Package IronPython
+            // Se packages.config for installerte avhengigheter
+
+            ScriptRuntime py = Python.CreateRuntime();
+            dynamic kalkulator = py.UseFile("calculator.py");
+            
+            int sum = kalkulator.add(5, 9);
+            sum.Should().Be(12);
         }
     }
 }

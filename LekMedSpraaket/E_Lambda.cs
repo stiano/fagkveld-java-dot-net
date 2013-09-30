@@ -1,7 +1,9 @@
 ﻿namespace LekMedSpråket
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
+    using System.Linq;
 
     using FluentAssertions;
     using NUnit.Framework;
@@ -16,10 +18,10 @@
     public class E_Lambda
     {
         [Test]
-        public void EllerAnonymeMetoder_GirIkkeAlltidMening()
+        public void AnonymeMetoder_HerNavngittLokalt()
         {
-            // Arrage
-            Predicate<Person> erMyndig = (pers) => // Predicate: Tar imot et sett med inputvariable og returnerer true/false.
+            // Predicate: Tar imot et sett med inputvariable og returnerer true/false.
+            Predicate<Person> erMyndig = (pers) => 
             {
                 return pers.Alder >= 18;
             };
@@ -30,32 +32,31 @@
                 Alder = 17
             };
 
-            // Assert
             erMyndig(person).Should().Be(true);
         }
 
         [Test]
         public void KanBrukesForÅPakkeInnFunksjonalitetFraLugubreUtestbareApier()
         {
-            // Arrage
-            Action<string> loggfør = (s) => // Action: Tar imot et sett med inputvariable og returnerer void
+            // Action: Tar imot et sett med inputvariable og returnerer void
+            Action<string> loggfør = (s) => 
             {
                 Trace.WriteLine(s);
             };
 
-            Action<string> loggførV2littMerKonsis = Console.WriteLine;
+            Action<string> loggførV2LittMerKonsis = Console.WriteLine;
 
-            // Assert
             loggfør("Skriver til testkonsollet");
-            loggførV2littMerKonsis("litt mer konsist");
+            loggførV2LittMerKonsis("litt mer konsist");
 
-            // Sjekk output i konsollet!
+            // Todo: Sjekk output i konsollet!
         }
 
         [Test]
         public void KanBrukesForÅPakkeInnFunksjonalitetFraLugubreUtestbareApierV2()
         {
-            Func<string, string, int> autentiserOgReturnerEvtSesjonsLengde = (brukernavn, passord) => // Func: Tar imot et sett med inputvariable og returnerer en verdi av typen til den siste inputverdien.
+            // Func: Tar imot et sett med inputvariable og returnerer en verdi av typen til den siste inputverdien.
+            Func<string, string, int> autentiserOgReturnerEvtSesjonsLengde = (brukernavn, passord) => 
             {
                 //FormsAuthentication.Authenticate(brukernavn, passord);
                 return brukernavn == passord
@@ -63,7 +64,7 @@
                            : 0;
             };
 
-            autentiserOgReturnerEvtSesjonsLengde("un", "un").Should().Be(20);
+            autentiserOgReturnerEvtSesjonsLengde("un", "pw").Should().Be(20);
             autentiserOgReturnerEvtSesjonsLengde("un", "pw").Should().Be(0);
         }
     }

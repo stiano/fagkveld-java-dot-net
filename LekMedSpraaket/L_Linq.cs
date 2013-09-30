@@ -1,5 +1,6 @@
 ﻿namespace LekMedSpråket
 {
+    using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
@@ -37,7 +38,7 @@
             // One-liner for å finne laveste alder
             var yngst = personer.Min(person => person.Alder);
 
-            yngst.Should().Be(10);
+            yngst.Should().Be(2);
         }
 
         [Test]
@@ -78,9 +79,10 @@
             var resultat = from person in personer
                            let alder = person.Alder
                            where alder == 35
+                           orderby alder descending 
                            select person;
 
-            resultat.Count().Should().Be(2);
+            resultat.Count().Should().BeGreaterThan(1);
         }
 
         [Test]
@@ -94,7 +96,9 @@
                                Antall = gruppe.Count()
                            };
 
+            // Logging
             resultat.ToList().ForEach(obj => Trace.WriteLine(string.Format("{0}:{1}", obj.Antall, obj.Alder)));
+
 
             resultat.Count(gruppering => gruppering.Antall > 1)
                 .Should().Be(1);
@@ -107,17 +111,21 @@
             Enumerable.Range(0, 1000 * 1000)
                 .Where(i => i % 2 == 0)
                 .Count()
-                .Should().Be(500 * 1000);
+                .Should().Be(50 * 1000);
         }
 
         [Test]
         public void HvordanKalleEgneUtvidelsesmetoder()
         {
-            Enumerable.Range(1, 10)
-                .Append(11) // Egen metode.
-                .ToList()
+            var a = Enumerable.Range(1, 10)
+                .Append(11); // Egen metode.
+
+            a.ToList()
                 .ForEach(i => Trace.WriteLine(i));
+
+            a.Count(i => i > 4).Should().Be(3);
         }
+
     }
 
     /// <summary>
@@ -131,6 +139,7 @@
         {
             foreach (T t in ie)
                 yield return t;
+
             yield return element;
         }
 
