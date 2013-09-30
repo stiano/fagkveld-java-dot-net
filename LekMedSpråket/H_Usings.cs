@@ -1,0 +1,80 @@
+﻿namespace LekMedSpråket
+{
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+
+    using FluentAssertions;
+
+    using NUnit.Framework;
+
+    class RessurskrevendeType : IDisposable
+    {
+        public object t;
+        public void KjørProssess()
+        {
+            // Benytter ressurs    
+            t = new object();
+            Trace.WriteLine("Prosess kjørt");
+        }
+
+        public void Dispose()
+        {
+            // Rydder opp ressursbruk
+            t = null;
+            Trace.WriteLine("Dispose kjørt");
+        }
+    }
+
+    [TestFixture]
+    public class H_Usings
+    {
+        [Test]
+        public void DyrebareRessurserKanHåndteresManuelt()
+        {
+            var type = new RessurskrevendeType();
+
+            try
+            {
+                type.KjørProssess();
+            }
+            finally
+            {
+                type.Dispose();
+            }
+
+            type.t.Should().BeNull();
+        }
+
+        [Test]
+        public void EllerAutomatiskGjennomEtUsingStatement()
+        {
+            using (var type = new RessurskrevendeType())
+            {
+                type.KjørProssess();
+            }
+            // Todo: sjekk output for å verifisere at dispose ble kjørt.
+        }
+
+        [Test]
+        public void BenyttesGjerneMotFilerEtc()
+        {
+            var tilfeldigFilbane = Path.GetTempFileName();
+
+            using (var stream = File.OpenWrite(tilfeldigFilbane))
+            using (var writer = new StreamWriter(stream))
+            {
+                writer.WriteLine("Første linje");
+            }
+
+            Trace.Write(tilfeldigFilbane);
+
+            // Verifiserer innholdet.
+            File.ReadAllText(tilfeldigFilbane)
+                //.TrimEnd()
+                .Should().Be("Første linje");
+
+            // Todo: Åpne fil og verifiser innholdet
+        }
+    }
+}
