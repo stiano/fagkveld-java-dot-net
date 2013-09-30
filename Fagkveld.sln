@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LekMedSpråket", "LekMedSpråket\LekMedSpråket.csproj", "{E4D78BD4-3449-44A3-9C30-5D9A1E9044A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LekMedSpraaket", "LekMedSpraaket\LekMedSpraaket.csproj", "{E4D78BD4-3449-44A3-9C30-5D9A1E9044A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5F94587A-FDFA-49C1-8C6F-F86CA8F61449}"
 	ProjectSection(SolutionItems) = preProject

@@ -16,7 +16,7 @@
          
          */
         [Test]
-        public void ValueTypesKanNåOgsåVæreNull()
+        public void ValueTypesKanNåOgsåVaereNull()
         {
             // Etter å ha lest ut en rad fra db...
             Nullable<int> vennerPåFacebook = null;
