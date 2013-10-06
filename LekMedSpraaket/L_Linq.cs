@@ -97,7 +97,8 @@
                            };
 
             // Logging
-            resultat.ToList().ForEach(obj => Trace.WriteLine(string.Format("{0}:{1}", obj.Antall, obj.Alder)));
+            resultat.ToList()
+                .ForEach(obj => Trace.WriteLine(string.Format("{0}:{1}", obj.Antall, obj.Alder)));
 
 
             resultat.Count(gruppering => gruppering.Antall > 1)
@@ -126,6 +127,17 @@
             a.Count(i => i > 4).Should().Be(3);
         }
 
+
+        [Test]
+        public void ProjekteringAvDataErOgsåMulig()
+        {
+            var personerMedNavnOgAlder = from person in personer
+                                         where person.Alder == 35
+                                         select person.Navn + ":" +  person.Alder;
+
+            personerMedNavnOgAlder.First()
+                      .Should().Be("E:100");
+        }
     }
 
     /// <summary>

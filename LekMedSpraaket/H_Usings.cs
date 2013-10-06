@@ -49,6 +49,7 @@
         [Test]
         public void EllerAutomatiskGjennomEtUsingStatement()
         {
+            // using krever at typen implementerer IDisposible.
             using (var type = new RessurskrevendeType())
             {
                 type.KjørProssess();

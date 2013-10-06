@@ -83,6 +83,9 @@
     <Compile Include="H_Usings.cs" />
     <Compile Include="J_AnonymeTyper.cs" />
     <Compile Include="L_Linq.cs" />
+    <Compile Include="M_IsAs.cs" />
+    <Compile Include="N_KlasseUtvidelser.cs" />
+    <Compile Include="O_Typer.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -15,7 +15,7 @@
             {
                 new Person("A"),
                 new Person("B"),
-                new Person("C"), // komma til slutt er ok, da er det enklere å sette inn neste element senere
+                new Person("C"), // komma til slutt er ok, da er det enklere å sette inn neste element senere.
             };
 
             personer.Add(new Person("D"));

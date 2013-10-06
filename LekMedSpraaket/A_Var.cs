@@ -16,7 +16,7 @@
      
      */
 
-    [TestFixture]
+    [TestFixtureAttribute] // <-- Attributt == Annotering
     public class A_Var
     {
         [Test]
@@ -44,6 +44,13 @@
             // Arrange
             //Dictionary<string, Dictionary<string,object>> tilfeldigStruktur = new Dictionary<string, Dictionary<string,object>>();
             var tilfeldigStruktur = new Dictionary<string, Dictionary<string,object>>();
+
+            // Og slik kan man legge til verdier i et map
+            tilfeldigStruktur.Add("nøkkel", new Dictionary<string, object>());
+
+            // Og hente ut vha indeks: http://www.dotnetperls.com/indexer
+            var resultat = tilfeldigStruktur["nøkkel"];
+
 
             // Act
             var type = tilfeldigStruktur.GetType();

@@ -9,10 +9,11 @@
 
     using Microsoft.CSharp.RuntimeBinder;
     using Microsoft.Scripting.Hosting;
-
     using NUnit.Framework;
 
     /*
+      
+     Dynamic -> Alt kompilerer compiletime, men runtime kan det gå skeis dersom ting ikke er på stell.
     
      Forklaring på bruk av dynamic ved å laste inn og kjøre pytonkode: 
      http://www.hanselman.com/blog/C4AndTheDynamicKeywordWhirlwindTourAroundNET4AndVisualStudio2010Beta1.aspx
@@ -25,16 +26,20 @@
         [Test]
         public void VilKompilere_MenKasterException()
         {
+            // Og slik lages konstanter. 
+            const string EspenAskeladd = "Espen Askeladd";
+
             // Arrange
             dynamic person = new Person
             {
-                Navn = "Espen Askeladd"
+                Navn = EspenAskeladd
             };
 
             // Assert
             Assert.Throws<RuntimeBinderException>(() => // lambda-funksjon
             {
-                person.KanMålbindePrinsessen(true);
+                // Kompilerer, men feiler runtime.
+                person.KanMålbindePrinsessen();
             });
         }
 
@@ -48,8 +53,8 @@
             ScriptRuntime py = Python.CreateRuntime();
             dynamic kalkulator = py.UseFile("calculator.py");
             
-            int sum = kalkulator.add(5, 9);
-            sum.Should().Be(12);
+            int sum = kalkulator.add(5, 4);
+            sum.Should().Be(9);
         }
     }
 }

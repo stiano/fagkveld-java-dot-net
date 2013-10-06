@@ -16,6 +16,14 @@
             t.NullEllerTom().Should().Be(false);
             "lang prosa tekst".NullEllerTom().Should().Be(true);
         }
+
+        [Test]
+        public void KanOgsåLagesMotEgneTyperellerInterfacer()
+        {
+            IDemo demo = new Demo(); // Kan naturligvis bruke var her også!
+            var svar = demo.UtvidelsesMetode1("input");
+            svar.Should().Be("returneres");
+        }
     }
 
     /// <summary>
@@ -44,5 +52,23 @@
         {
             return value != null && value.Length > length ? value.Substring(0, length) : value;
         }
+    }
+
+    public static class DemoUtvidelser
+    {
+        public static string UtvidelsesMetode1(this IDemo demo, string verdi)
+        {
+            return verdi;
+        }
+    }
+
+    public interface IDemo
+    {
+        // Tom
+    }
+
+    public class Demo : IDemo
+    {
+        // Tom
     }
 }

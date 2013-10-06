@@ -11,20 +11,30 @@
     /*
      
     Forklaring av syntaks: http://www.dotnetperls.com/lambda 
+    
+    Les gjerne litt om delegater (funksjonspekere) her: http://zetcode.com/lang/csharp/delegates/
      
      */
 
     [TestFixture]
     public class E_Lambda
     {
+        public bool ErMyndig(Person p)
+        {
+            return p.Alder >= 18;
+        }
+
         [Test]
         public void AnonymeMetoder_HerNavngittLokalt()
         {
-            // Predicate: Tar imot et sett med inputvariable og returnerer true/false.
+            // Predicate: Tar imot et sett med inputvariable (generiske) og returnerer true/false.
             Predicate<Person> erMyndig = (pers) => 
             {
                 return pers.Alder >= 18;
             };
+
+            // kan også peke på eksisterende funksjoner. Merk at metodesignaturene må stemme overens.
+            Predicate<Person> myndig2 = ErMyndig;
 
             var person = new Person
             {
@@ -32,7 +42,8 @@
                 Alder = 17
             };
 
-            erMyndig(person).Should().Be(true);
+            erMyndig(person)
+                .Should().Be(true);
         }
 
         [Test]
