@@ -24,7 +24,7 @@
         {
             // Arrange
             //int magisk = 43;
-            var magisk = 43;
+            var magisk = 43.0;
 
             // Act
             var type = magisk.GetType();
@@ -42,11 +42,11 @@
         public void TrengerIkkeSkriveTypePåKompleksStruktur()
         {
             // Arrange
-            //Dictionary<string, Dictionary<string,object>> tilfeldigStruktur = new Dictionary<string, Dictionary<string,object>>();
-            var tilfeldigStruktur = new Dictionary<string, Dictionary<string,object>>();
+            //Dictionary<string, Dictionary<string, object>> tilfeldigStruktur = new Dictionary<string, Dictionary<string, object>>();
+            var tilfeldigStruktur = new Dictionary<string, Dictionary<string, string>>();
 
             // Og slik kan man legge til verdier i et map
-            tilfeldigStruktur.Add("nøkkel", new Dictionary<string, object>());
+            tilfeldigStruktur.Add("nøkkel", new Dictionary<string, string>());
 
             // Og hente ut vha indeks: http://www.dotnetperls.com/indexer
             var resultat = tilfeldigStruktur["nøkkel"];
@@ -76,7 +76,7 @@
             var type = person.GetType();
 
             // Assert
-            type.Should().Be(typeof(object));
+            type.Should().Be(typeof(Person));
         }
 
         [Test]
@@ -89,7 +89,7 @@
             var type = personer.GetType();
 
             // Assert
-            type.Should().Be(typeof(List<Person>));
+            type.Should().Be(typeof(Person[]));
         }
     }
 }

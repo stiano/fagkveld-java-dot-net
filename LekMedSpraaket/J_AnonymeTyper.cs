@@ -37,7 +37,7 @@
 
         private int DynamiskMetode1(dynamic dyn)
         {
-            return dyn.CD;
+            return dyn.A;
         }
     }
 

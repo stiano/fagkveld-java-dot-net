@@ -38,13 +38,13 @@
             // One-liner for å finne laveste alder
             var yngst = personer.Min(person => person.Alder);
 
-            yngst.Should().Be(2);
+            yngst.Should().Be(10);
         }
 
         [Test]
         public void DenEldstrePersonenEr()
         {
-            int eldst = 0;
+            var eldst = personer.Max(person => person.Alder);
 
             // Todo: one-liner for å finne høyeste alder
 
@@ -60,13 +60,15 @@
                 .Where(person => person.Alder == 35)
                 .Count();
 
-            antall.Should().Be(0);
+            antall.Should().Be(2);
         }
 
         [Test]
         public void HvaErSnittet()
         {
             double snittAlder = 0;
+
+            snittAlder = personer.Average(person => person.Alder);
 
             // Todo: one-liner for å finne snittalder
 
@@ -112,13 +114,13 @@
             Enumerable.Range(0, 1000 * 1000)
                 .Where(i => i % 2 == 0)
                 .Count()
-                .Should().Be(50 * 1000);
+                .Should().Be(500 * 1000);
         }
 
         [Test]
         public void HvordanKalleEgneUtvidelsesmetoder()
         {
-            var a = Enumerable.Range(1, 10)
+            var a = Enumerable.Range(1, 6)
                 .Append(11); // Egen metode.
 
             a.ToList()
@@ -132,7 +134,7 @@
         public void ProjekteringAvDataErOgsåMulig()
         {
             var personerMedNavnOgAlder = from person in personer
-                                         where person.Alder == 35
+                                         where person.Alder == 100
                                          select person.Navn + ":" +  person.Alder;
 
             personerMedNavnOgAlder.First()

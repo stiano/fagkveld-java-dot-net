@@ -12,9 +12,9 @@
         {
             string t = null;
 
-            "".NullEllerTom().Should().Be(false);
-            t.NullEllerTom().Should().Be(false);
-            "lang prosa tekst".NullEllerTom().Should().Be(true);
+            "".NullEllerTom().Should().Be(true);
+            t.NullEllerTom().Should().Be(true);
+            "lang prosa tekst".NullEllerTom().Should().Be(false);
         }
 
         [Test]
@@ -22,7 +22,7 @@
         {
             IDemo demo = new Demo(); // Kan naturligvis bruke var her også!
             var svar = demo.UtvidelsesMetode1("input");
-            svar.Should().Be("returneres");
+            svar.Should().Be("input");
         }
     }
 

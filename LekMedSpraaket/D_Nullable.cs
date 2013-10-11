@@ -22,7 +22,7 @@
             Nullable<int> vennerPåFacebook = null;
             
             // Assert
-            vennerPåFacebook.HasValue.Should().Be(true);
+            vennerPåFacebook.HasValue.Should().Be(false);
         }
 
         [Test]
@@ -32,7 +32,7 @@
             int? vennerPåFacebook = null;
 
             // Assert
-            vennerPåFacebook.HasValue.Should().Be(true);
+            vennerPåFacebook.HasValue.Should().Be(false);
         }
 
         [Test]
@@ -43,14 +43,14 @@
             vennerPåFacebook.HasValue.Should().Be(true);
             vennerPåFacebook.Value.Should().Be(6);
 
-            vennerPåFacebook.Should().Be(3);
+            vennerPåFacebook.Should().NotBe(3);
         }
 
         [Test]
         public void KanSendInnNullSomParametereTilFunksjon()
         {
             var liste = Paging(null, null);
-            liste.Should().Contain(Enumerable.Range(0, 20));
+            liste.Should().Contain(0);
         }
 
         private IEnumerable<int> Paging(int? side, int? størrelse)

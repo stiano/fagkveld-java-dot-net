@@ -29,14 +29,14 @@
         public void KanLeggeTilPrefiksEllerLaVære()
         {
             SlåSammen("abc", "def").Should().Be("abcdef");
-            SlåSammen("abc", "def", prefix: "-> ").Should().Be("?");
+            SlåSammen("abc", "def", prefix: "-> ").Should().Be("-> abcdef");
         }
 
         [Test]
         public void KanNavngiDeForskjelligeParametereneForSikkerhetsSkyld()
         {
             SlåSammen(tekst1: "abc", tekst2: "def").Should().Be("abcdef");
-            SlåSammen(tekst1: "abc", tekst2: "def", prefix: "-> ").Should().Be("?");
+            SlåSammen(tekst1: "abc", tekst2: "def", prefix: "-> ").Should().Be("-> abcdef");
         }
 
         [Test]
@@ -65,17 +65,7 @@
             public string a;
             public string b;
 
-            public TestKlasse()
-                : this("a")
-            {
-            }
-            
-            public TestKlasse(string a)
-                : this(a, "b")
-            {
-            }
-
-            public TestKlasse(string a, string b)
+            public TestKlasse(string a = "a", string b = "b")
             {
                 this.a = a;
                 this.b = b;

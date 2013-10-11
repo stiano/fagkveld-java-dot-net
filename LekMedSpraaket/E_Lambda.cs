@@ -43,7 +43,7 @@
             };
 
             erMyndig(person)
-                .Should().Be(true);
+                .Should().Be(false);
         }
 
         [Test]
@@ -75,7 +75,7 @@
                            : 0;
             };
 
-            autentiserOgReturnerEvtSesjonsLengde("un", "pw").Should().Be(20);
+            autentiserOgReturnerEvtSesjonsLengde("un", "un").Should().Be(20);
             autentiserOgReturnerEvtSesjonsLengde("un", "pw").Should().Be(0);
         }
     }

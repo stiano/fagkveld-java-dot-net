@@ -20,7 +20,7 @@
 
             personer.Add(new Person("D"));
 
-            personer.Count.Should().Be(3);
+            personer.Count.Should().Be(4);
         }
 
         /// <typeparam name="TId">Typen til det generiske argumentet</typeparam>
@@ -46,7 +46,7 @@
                 Kontonummer = "12312 12 1232"
             };
 
-            konto.Id.Should().Be(124);
+            konto.Id.Should().Be(123L);
         }
     }
 }
