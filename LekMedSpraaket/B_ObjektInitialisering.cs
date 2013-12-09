@@ -17,7 +17,7 @@
             };
 
             Person person2 = new Person();
-            person2.Navn = "Espen Askeladd";
+            person2.Navn = "EspenAskeladd";
 
             // Assert
             person1.Navn.Should().Be(person2.Navn);
@@ -34,7 +34,7 @@
             };
 
             // Assert
-            person.Navn.Should().Be("Espen Askeladd");
+            person.Navn.Should().Be("? Askeladd");
         }
 
         [Test]
@@ -45,7 +45,7 @@
             {
                 MellomNavn = "grøtspiser",
                 Alder = 21,
-                ErDod = false
+                ErDod = true
             };
 
             // Assert

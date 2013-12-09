@@ -39,10 +39,11 @@
             testKlasser.Should().Contain(new[]
             {
                 typeof(A_Var),
+                typeof(Base),
                 typeof(O_Typer),
             });
 
-            testKlasser.Count().Should().Be(14);
+            testKlasser.Count().Should().Be(12);
         }
     }
 }

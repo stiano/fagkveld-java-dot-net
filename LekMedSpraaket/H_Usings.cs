@@ -14,7 +14,7 @@
         public void KjørProssess()
         {
             // Benytter ressurs    
-            t = null;
+            t = new object();
             Trace.WriteLine("Prosess kjørt");
         }
 
@@ -73,7 +73,7 @@
             // Verifiserer innholdet.
             File.ReadAllText(tilfeldigFilbane)
                 //.TrimEnd()
-                .Should().Be("Første linje\r\n");
+                .Should().Be("Første linje");
 
             // Todo: Åpne fil og verifiser innholdet
         }

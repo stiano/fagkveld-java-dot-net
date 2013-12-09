@@ -26,7 +26,7 @@
         public int Verdi { get; set; }
 
         public N_KlasseUtvidelser()
-            : base(100)
+            : base(123)
         {
             Verdi = A;
         }
@@ -91,10 +91,10 @@
 
             klasse++;
 
-            klasse.Verdi.Should().Be(101);
+            klasse.Verdi.Should().Be(100);
 
             var nyKlasse = klasse + new N_KlasseUtvidelser();
-            nyKlasse.Verdi.Should().Be(201);
+            nyKlasse.Verdi.Should().Be(200);
 
             (new N_KlasseUtvidelser() == new N_KlasseUtvidelser())
                 .Should().BeTrue();
